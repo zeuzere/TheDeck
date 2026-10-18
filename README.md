@@ -1,3 +1,9 @@
+---
+type: readme
+title: TheDeck
+description: Windows downloads and getting started with TheDeck and Capture.
+---
+
 # TheDeck
 
 **Keep your projects in view and your tools close.**
