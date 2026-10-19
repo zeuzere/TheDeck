@@ -14,12 +14,12 @@ This public repository distributes the applications and this guide. The developm
 
 ## Download
 
-Version **0.1.0** — Windows x64 (Intel/AMD 64-bit).
+Version **0.1.1** — Windows x64 (Intel/AMD 64-bit).
 
 | Application | Download | What you get |
 | --- | --- | --- |
-| TheDeck | [TheDeck Windows installer](https://github.com/zeuzere/TheDeck/releases/download/v0.1.0/TheDeck-Setup-0.1.0-win-x64.exe) | Desktop application, local service and optional Capture companion. |
-| TheDeck Capture | [Capture standalone executable](https://github.com/zeuzere/TheDeck/releases/download/v0.1.0/TheDeck-Capture-0.1.0-win-x64.exe) | Screenshot tool that works without TheDeck. |
+| TheDeck | [TheDeck Windows installer](https://github.com/zeuzere/TheDeck/releases/download/v0.1.1/TheDeck-Setup-0.1.1-win-x64.exe) | Desktop application, local service and optional Capture companion. |
+| TheDeck Capture | [Capture standalone executable](https://github.com/zeuzere/TheDeck/releases/download/v0.1.1/TheDeck-Capture-0.1.1-win-x64.exe) | Screenshot tool that works without TheDeck. |
 
 See [all releases and release notes](https://github.com/zeuzere/TheDeck/releases). Executables are distributed through Releases; GitHub's automatic source archives contain only this public distribution repository, not the application's development source.
 
@@ -38,6 +38,10 @@ The installer includes Electron, the local service and its .NET runtime. You do 
 - Follow GitHub pull requests using your locally authenticated GitHub CLI.
 - Browse supported local Codex and Claude Code sessions.
 - Keep terminals arranged in groups, with Notes and quick questions alongside your work.
+- Maximize a terminal within its group and restore saved side-by-side groups.
+- Open Workspace web tabs beside terminals, with Web, detected Links and Notes in a shared pane.
+- Select provider-reported models and reasoning effort when starting Claude or Codex terminals.
+- Control Workspaces, terminals and web tabs through the CLI or TheDeck MCP server, including literal terminal input.
 - Save selected terminal excerpts as bookmarks.
 - Configure external MCP connections and automation hooks when needed.
 - Find keyboard help under **Shortcuts**, and product information under **Settings → About**.
@@ -67,6 +71,6 @@ TheDeck also includes Capture: enable **Settings → General → Screenshot capt
 
 ## Release notes and support
 
-This is the first Windows x64 release. The executables are not code-signed. Release notes identify the checks performed and any known limitations; verify downloaded files against the SHA-256 hashes included there.
+The executables are not code-signed. Release notes identify the checks performed and any known limitations; verify downloaded files against the SHA-256 hashes included there.
 
 For an issue, include the application name, version from About, Windows version and steps to reproduce. Avoid posting private project content, credentials or personal screenshots. [Report an issue](https://github.com/zeuzere/TheDeck/issues).
