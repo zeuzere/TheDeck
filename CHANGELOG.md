@@ -1,5 +1,20 @@
 # Changelog
 
+## TheDeck 0.3.0 and A2AService 0.1.0 — 2026-10-20
+
+- Added independent TheDeck-A2AService with SQLite retention, registered desktop
+  identities, presence and queued requests for offline recipients.
+- Added A2A Settings: per-profile connection/name, directory, request composer,
+  retained inbox/outbox, manual replies and cancellation. No automatic AI execution.
+- Added profile-scoped CLI/MCP commands for autonomous configuration and exchanges.
+- Added an experimental A2A 1.0 JSON-RPC subset; the MVP has no authentication,
+  streaming or claim of full protocol compliance, and listens on loopback by default.
+- Expanded the public README into a self-contained agent installation guide with
+  verified binary downloads, silent installation, two profiles and offline exchange.
+- Added executable proof using two actual packaged desktops, a real service,
+  closed-recipient delivery, replies and service-restart retention.
+- TheTasks 1.1.0 and Capture 0.1.2 are included unchanged from delivery 0.2.0.
+
 ## TheDeck 0.2.0 — 2026-10-20
 
 Changes since the published TheDeck 0.1.1 release.
