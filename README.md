@@ -158,14 +158,32 @@ Copy-Item -LiteralPath $downloads.Capture -Destination (Join-Path $toolsDir 'The
 Copy-Item -LiteralPath $downloads.A2A -Destination (Join-Path $toolsDir 'TheDeck-A2AService.exe')
 & $control --help
 $profile = Join-Path $env:APPDATA 'TheDeck'
-& $control --user-data $profile --command workspace.list --json
-if ($LASTEXITCODE -ne 0) { throw 'TheDeck Control verification failed.' }
+Start-Process -FilePath $deck -ArgumentList @('--control-desktop', '--user-data', "`"$profile`"")
+$controlReady = $false
+for ($attempt = 0; $attempt -lt 30 -and !$controlReady; $attempt++) {
+    $verificationText = & $control --user-data $profile --command workspace.list --json 2>$null
+    if ($LASTEXITCODE -eq 0) {
+        $verification = $verificationText | ConvertFrom-Json
+        $controlReady = $verification.ok -eq $true
+    }
+    if (!$controlReady) { Start-Sleep -Milliseconds 250 }
+}
+if (!$controlReady) { throw 'TheDeck Control verification failed; inspect the launched desktop before retrying.' }
+$verification
 ```
 
 Control returns `{ "ok": true, "result": ... }`; nonzero exit codes or `ok:false`
 mean failure. A fresh profile has an empty Workspace list. Control may start the
-matching installed desktop when needed. Do not erase an existing profile to get
+matching desktop only when launcher environment is configured; this guide starts
+it explicitly and waits for readiness. Do not erase an existing profile to get
 an empty list. Record the installed versions, paths and verification results.
+
+Launch installed profiles without development overrides such as `DECK_API_URL`,
+`ELECTRON_RENDERER_URL`, `DECK_TEST_MODE`, `DECK_TEST_DATA_DIR`,
+`THEDECK_CONTROL_USER_DATA` or `Deck__DatabasePath`. If present in the agent's
+process, temporarily remove them for these commands rather than changing the
+user's permanent environment. They can otherwise redirect a fresh installed
+profile to an unrelated development API or database.
 
 Git, GitHub CLI, Codex CLI and Claude Code are optional dependencies for their
 respective features. Install/configure them only as needed. Authentication may
